@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="CSS/contact_style.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- <script src="CSS/contact_style.js"></script> -->
+</head> 
+<body>
+    <header>
+        <div class="banner">
+            <div class="banner-text">
+                <h1 class="ardara-heading">Ardara</h1>
+                <p class="slogan-text">Home of festivals</p>
+            </div>
+
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-list">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="events.html" class="nav-item">Events</a>
+            <a href="history.html" class="nav-item">History</a>
+            <a href="contact.html" class="nav-item nav-active">Contact Us</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form action="action_page.php">
+      
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+            <option value="ireland">Ireland</option>
+            <option value="austria">Austria</option>
+            <option value="england">England</option>
+            <option value="brazil">Brazil</option>
+            <option value="france">France</option>
+          </select>
+      
+          <label for="subject">Subject</label>
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      
+          <input type="submit" value="Submit">
+      
+        </form>
+      </div>
+
+    <div id="map" style="height: 500px;">
+        <script>
+            var map = L.map('map').setView([54.764440, -8.410491], 13);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                tileSize: 512,
+                zoomOffset: -1
+            }).addTo(map);
+    
+            var marker = L.marker([54.764440, -8.410491]).addTo(map);
+    
+            marker.bindPopup("<b>Ardara!</b><br />The Home of Festivals.").openPopup();
+    
+            L.control.zoom({
+                 position:'bottomright'
+            }).addTo(map);
+        </script>
+    </div>
+    
+    <footer>
+        
+        <a href="mailto:info@mytown.com">Email Us</a>
+    </footer>
+
+</body>
+</html>
